@@ -1,6 +1,7 @@
 import Header from './componets/Header';
 import Tasks from './componets/Tasks';
 import { useState } from 'react'
+import Form from './componets/Form';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
   return (
     <div className='container'>
       <Header />
+      <Form />
       {TasksData.length > 0 ? <Tasks tasks={TasksData} onDeleteClick={dele}
         remind={reminderClick} /> : "No Tasks to show"}
     </div>
