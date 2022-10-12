@@ -26,7 +26,7 @@ function App() {
       text: "Showering",
       day: "Friday",
       date: "15-10-2022",
-      reminder: true
+      reminder: false
 
 
     }, {
@@ -42,7 +42,9 @@ function App() {
   const dele = (id) => {
     setTasks(TasksData.filter((t) => t.id !== id))
   }
-  const reminderClick = (id) => { console.log(id) }
+  const reminderClick = (id) => {
+    setTasks(TasksData.map((t) => (t.id == id ? { ...t, reminder: !t.reminder } : t)))
+  }
 
   return (
     <div className='container'>

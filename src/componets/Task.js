@@ -4,7 +4,7 @@ const Task = ({ task, d, reminder }) => {
  
 
     return (
-        <div className="task"  onDoubleClick={()=> reminder(task.id)}>
+        <div className={`task ${task.reminder ? 'reminder' : ''}`}  onDoubleClick={()=> reminder(task.id)}>
             <h3>{task.text} <button className="btn-cansel"
                 onClick={()=> d(task.id)}
             >Delete</button></h3>
