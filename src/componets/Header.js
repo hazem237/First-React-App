@@ -2,9 +2,10 @@
 
 const Header = () => {
     return (
-        <p className="header">
-            Task Program
-        </p>
+        <div className="header">
+            <p>Program Task</p>
+            <button className="btn">Hide</button>
+        </div>
     )
 }
 

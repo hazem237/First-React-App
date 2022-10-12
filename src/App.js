@@ -39,18 +39,26 @@ function App() {
     }
 
   ])
-
+   
   const dele = (id) => {
     setTasks(TasksData.filter((t) => t.id !== id))
   }
   const reminderClick = (id) => {
-    setTasks(TasksData.map((t) => (t.id == id ? { ...t, reminder: !t.reminder } : t)))
+    setTasks(TasksData.map((t) => (t.id === id ? { ...t, reminder: !t.reminder } : t)))
+  }
+
+  const addTask = (text) => {
+    const id = Math.floor(Math.random() * 1000 + 1)
+    const newTask = { id, ...text };
+    console.log (TasksData)
+    setTasks([...TasksData, newTask])
+    console.log(TasksData)
   }
 
   return (
     <div className='container'>
       <Header />
-      <Form />
+      <Form AddTask={addTask} />
       {TasksData.length > 0 ? <Tasks tasks={TasksData} onDeleteClick={dele}
         remind={reminderClick} /> : "No Tasks to show"}
     </div>
