@@ -39,7 +39,8 @@ function App() {
     }
 
   ])
-   
+
+  const [showTasks, setShowingStatus] = useState(true);
   const dele = (id) => {
     setTasks(TasksData.filter((t) => t.id !== id))
   }
@@ -50,15 +51,17 @@ function App() {
   const addTask = (text) => {
     const id = Math.floor(Math.random() * 1000 + 1)
     const newTask = { id, ...text };
-    console.log (TasksData)
+    console.log(TasksData)
     setTasks([...TasksData, newTask])
     console.log(TasksData)
   }
-
+  const changeShowTaskStatus = () => {
+    setShowingStatus(!showTasks);
+  }
   return (
     <div className='container'>
-      <Header />
-      <Form AddTask={addTask} />
+      <Header showTasks={changeShowTaskStatus} statusShow={showTasks} />
+      {showTasks && <Form AddTask={addTask} />}
       {TasksData.length > 0 ? <Tasks tasks={TasksData} onDeleteClick={dele}
         remind={reminderClick} /> : "No Tasks to show"}
     </div>

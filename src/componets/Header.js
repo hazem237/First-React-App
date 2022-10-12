@@ -1,10 +1,10 @@
 
-
-const Header = () => {
+import ButtonMaker from "./ButtonMaker"
+const Header = ({ showTasks, statusShow }) => {
     return (
         <div className="header">
             <p>Program Task</p>
-            <button className="btn">Hide</button>
+            <ButtonMaker text={statusShow ? "Hide" : "Show"} color={statusShow ? "red" : "green"} onClickEvent={showTasks} />
         </div>
     )
 }
