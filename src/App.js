@@ -5,9 +5,7 @@ import { useState } from 'react'
 
 function App() {
 
-  function DeleteOnClick() {
-    console.log("id");
-  }
+
   const [TasksData, setTasks] = useState([
     {
       id: 1,
@@ -40,10 +38,17 @@ function App() {
     }
 
   ])
+
+  const dele = (id) => {
+    setTasks(TasksData.filter((t) => t.id !== id))
+  }
+  const reminderClick = (id) => { console.log(id) }
+
   return (
     <div className='container'>
       <Header />
-      <Tasks tasks={TasksData} onDeleteClick={ DeleteOnClick } />
+      {TasksData.length > 0 ? <Tasks tasks={TasksData} onDeleteClick={dele}
+        remind={reminderClick} /> : "No Tasks to show"}
     </div>
   );
 }
