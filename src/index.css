@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+/* @import url(./background.jpg); */
 
 .centered {
   justify-content: center;
@@ -49,7 +50,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 250vh 100vh;
-
+  background-image: url(background.jpg);
 
 }
 
@@ -89,6 +90,7 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .btn:focus {
@@ -105,7 +107,7 @@ body {
 }
 
 .task {
-  background: #5e5d5d33;
+  background: #858585c2;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
